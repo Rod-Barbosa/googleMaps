@@ -1,0 +1,96 @@
+## Table of contents
+
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
+- [Acknowledgments](#acknowledgments)
+
+
+## Overview
+
+### The challenge
+
+Create a google maps clone that shows a User and a Company both randomly generated and on random locations
+
+After this Challenge I should be able to Code/Understand:
+
+- Typescript basics
+- Typescript Interface
+- google maps api
+
+### Screenshot
+
+![](./appMap.png)
+![](./userMap.png)
+![](./companyMap.png)
+
+### Links
+
+- Solution Github URL: [https://github.com/Rod-Barbosa/momentumClone](https://github.com/Rod-Barbosa/googleMaps)
+- Live Site URL: no live site for chrome extension, jsut download the repo and install on your browser
+
+## My process
+
+### Built with
+
+- Typescript
+- google maps api
+
+### What I learned
+
+Interfaces are basically instructions to every other class on how they can be an argument
+```TypeScript
+export interface Mappable {
+    location: {
+        lat: number;
+        lng: number;
+    };
+    markerContent(): string;
+}
+```
+Google Maps api and implementation are really simple. Also, to see type file just command click on top of .Map part of google.maps.Map
+```TypeScript
+export class CustomMap {
+    private googleMap: google.maps.Map;
+
+    constructor(divId: string) {
+        this.googleMap = new google.maps.Map(document.getElementById(divId), 
+        { 
+            zoom:1,
+            center: {
+                lat: 0,
+                lng: 0
+            }
+        });
+    }
+```
+faker makes the random things really cool. It can be used for company cathcPhrases
+```TypeScript 
+import faker from 'faker';
+        this.companyName = faker.company.companyName();
+        this.catchPhrase = faker.company.catchPhrase();
+```
+### Continued development
+
+The color of the maps is faded because of some implementations issues. In a perfect world I would come back and fix this.
+
+### Useful resources
+
+- [Google Maps API](https://developers.google.com/maps/) - This package contains type definitions for Google Maps JavaScript API
+
+## Author
+
+- Website - [Rodrigo Portfolio](https://www.gelatodigital.com)
+- Frontend Mentor - [@Rod-Barbosa](https://www.frontendmentor.io/profile/Rod-Barbosa)
+- Github - [@Rod-Barbosa](https://github.com/Rod-Barbosa)
+
+## Acknowledgments
+
+These definitions were written by [Alex Muramoto](https://github.com/amuramoto), and [Angela Yu](https://github.com/wangela).
